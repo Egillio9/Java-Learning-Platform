@@ -32,7 +32,7 @@ public class QuizService {
     }
 
     @Transactional
-    public QuizResult submit(String slug, QuizSubmission submission) {
+    public QuizResult submit(String slug, Long learnerId, QuizSubmission submission) {
         Topic topic = catalogService.findTopic(slug);
         List<Question> questions = topic.getQuestions();
         Map<Long, Integer> answers = submission.answers();
@@ -53,7 +53,7 @@ public class QuizService {
                 .toList();
         int score = (int) feedback.stream().filter(AnswerFeedback::correct).count();
 
-        Learner learner = learnerService.getOrCreate(submission.username());
+        Learner learner = learnerService.get(learnerId);
         QuizAttempt attempt = attemptRepository.save(new QuizAttempt(learner, topic, score, questions.size()));
 
         return new QuizResult(topic.getSlug(), score, questions.size(), attempt.percentage(), feedback);

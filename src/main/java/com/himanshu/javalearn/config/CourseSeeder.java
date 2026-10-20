@@ -12,8 +12,12 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
-/** Loads the built-in Java curriculum on first start; an existing catalog is left untouched. */
+/**
+ * Loads the built-in Java curriculum. Topics missing from the database are added and every topic is
+ * put in syllabus order; lessons of topics that already exist are left untouched so progress survives.
+ */
 @Component
 public class CourseSeeder implements CommandLineRunner {
 
@@ -28,12 +32,24 @@ public class CourseSeeder implements CommandLineRunner {
     @Override
     @Transactional
     public void run(String... args) {
-        if (topicRepository.count() > 0) {
-            return;
+        List<Topic> syllabus = List.of(
+                basics(), ExtendedCurriculum.arrays(), ExtendedCurriculum.methods(), oop(), strings(),
+                ExtendedCurriculum.interfaces(), exceptions(), collections(), ExtendedCurriculum.generics(),
+                ExtendedCurriculum.fileIo(), streams(), ExtendedCurriculum.multithreading(),
+                ExtendedCurriculum.modernJava());
+
+        int added = 0;
+        for (int i = 0; i < syllabus.size(); i++) {
+            Topic definition = syllabus.get(i);
+            Optional<Topic> existing = topicRepository.findBySlug(definition.getSlug());
+            Topic topic = existing.orElse(definition);
+            topic.reposition(i + 1);
+            if (existing.isEmpty()) {
+                topicRepository.save(topic);
+                added++;
+            }
         }
-        List<Topic> topics = List.of(basics(), oop(), strings(), exceptions(), collections(), streams());
-        topicRepository.saveAll(topics);
-        log.info("Seeded {} topics", topics.size());
+        log.info("Curriculum synced: {} topics ({} added)", syllabus.size(), added);
     }
 
     private Topic basics() {

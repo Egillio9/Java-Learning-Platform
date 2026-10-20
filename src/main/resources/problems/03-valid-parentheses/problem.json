@@ -1,0 +1,59 @@
+{
+  "slug": "valid-parentheses",
+  "title": "Valid Parentheses",
+  "difficulty": "EASY",
+  "params": [
+    "s"
+  ],
+  "tags": [
+    "String",
+    "Stack"
+  ],
+  "position": 3,
+  "tests": [
+    {
+      "input": "\"()\"",
+      "expected": "true",
+      "sample": true
+    },
+    {
+      "input": "\"()[]{}\"",
+      "expected": "true",
+      "sample": true
+    },
+    {
+      "input": "\"(]\"",
+      "expected": "false",
+      "sample": true
+    },
+    {
+      "input": "\"([])\"",
+      "expected": "true",
+      "sample": true
+    },
+    {
+      "input": "\"([)]\"",
+      "sample": false
+    },
+    {
+      "input": "\"{[]}\"",
+      "sample": false
+    },
+    {
+      "input": "\"(\"",
+      "sample": false
+    },
+    {
+      "input": "\"]\"",
+      "sample": false
+    },
+    {
+      "input": "\"((((((()))))))\"",
+      "sample": false
+    },
+    {
+      "input": "\"[{()}](){}\"",
+      "sample": false
+    }
+  ]
+}

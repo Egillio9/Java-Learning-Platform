@@ -1,0 +1,43 @@
+{
+  "slug": "kth-largest-element-in-an-array",
+  "title": "Kth Largest Element in an Array",
+  "difficulty": "MEDIUM",
+  "params": [
+    "nums",
+    "k"
+  ],
+  "tags": [
+    "Array",
+    "Heap (Priority Queue)",
+    "Sorting"
+  ],
+  "position": 19,
+  "tests": [
+    {
+      "input": "[3,2,1,5,6,4]\n2",
+      "expected": "5",
+      "sample": true
+    },
+    {
+      "input": "[3,2,3,1,2,4,5,5,6]\n4",
+      "expected": "4",
+      "sample": true
+    },
+    {
+      "input": "[1]\n1",
+      "sample": false
+    },
+    {
+      "input": "[7,7,7]\n2",
+      "sample": false
+    },
+    {
+      "input": "[-1,-5,3,9,0]\n5",
+      "sample": false
+    },
+    {
+      "input": "[2,1]\n1",
+      "sample": false
+    }
+  ]
+}

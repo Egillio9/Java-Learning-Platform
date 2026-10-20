@@ -1,10 +1,14 @@
 package com.himanshu.javalearn.service;
 
+import com.himanshu.javalearn.exception.InvalidRequestException;
 import com.himanshu.javalearn.exception.NotFoundException;
+import com.himanshu.javalearn.model.AuthProvider;
 import com.himanshu.javalearn.model.Learner;
 import com.himanshu.javalearn.repository.LearnerRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.Locale;
 
 @Service
 public class LearnerService {
@@ -15,17 +19,33 @@ public class LearnerService {
         this.learnerRepository = learnerRepository;
     }
 
-    /** Learners are identified by username only; the first action under a new name registers it. */
+    /** Guests are keyed by name, so signing in again with the same name resumes the same progress. */
     @Transactional
-    public Learner getOrCreate(String username) {
-        String normalized = username.trim();
-        return learnerRepository.findByUsernameIgnoreCase(normalized)
-                .orElseGet(() -> learnerRepository.save(new Learner(normalized)));
+    public Learner signInAsGuest(String name) {
+        String displayName = name.trim().replaceAll("\\s+", " ");
+        String username = "guest:" + displayName.toLowerCase(Locale.ROOT);
+        Learner learner = learnerRepository.findByUsername(username)
+                .orElseGet(() -> learnerRepository.save(new Learner(username, displayName, AuthProvider.GUEST, null)));
+        learner.touch();
+        return learner;
+    }
+
+    @Transactional
+    public Learner signInWithGoogle(String email, String name, String pictureUrl) {
+        if (email == null || email.isBlank()) {
+            throw new InvalidRequestException("Google account has no email address");
+        }
+        String username = "google:" + email.toLowerCase(Locale.ROOT);
+        String displayName = name == null || name.isBlank() ? email : name;
+        Learner learner = learnerRepository.findByUsername(username)
+                .orElseGet(() -> learnerRepository.save(new Learner(username, displayName, AuthProvider.GOOGLE, pictureUrl)));
+        learner.refreshProfile(displayName, pictureUrl);
+        return learner;
     }
 
     @Transactional(readOnly = true)
-    public Learner get(String username) {
-        return learnerRepository.findByUsernameIgnoreCase(username.trim())
-                .orElseThrow(() -> new NotFoundException("Learner not found: " + username));
+    public Learner get(Long id) {
+        return learnerRepository.findById(id)
+                .orElseThrow(() -> new NotFoundException("Learner not found: " + id));
     }
 }

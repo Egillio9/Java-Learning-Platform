@@ -47,6 +47,10 @@ public class Topic {
         this.position = position;
     }
 
+    public void reposition(int position) {
+        this.position = position;
+    }
+
     public void addLesson(Lesson lesson) {
         lesson.setTopic(this);
         lessons.add(lesson);

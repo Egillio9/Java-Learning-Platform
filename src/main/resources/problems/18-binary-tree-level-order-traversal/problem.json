@@ -1,0 +1,43 @@
+{
+  "slug": "binary-tree-level-order-traversal",
+  "title": "Binary Tree Level Order Traversal",
+  "difficulty": "MEDIUM",
+  "params": [
+    "root"
+  ],
+  "tags": [
+    "Tree",
+    "Breadth-First Search",
+    "Queue"
+  ],
+  "position": 18,
+  "tests": [
+    {
+      "input": "[3,9,20,null,null,15,7]",
+      "expected": "[[3],[9,20],[15,7]]",
+      "sample": true
+    },
+    {
+      "input": "[1]",
+      "expected": "[[1]]",
+      "sample": true
+    },
+    {
+      "input": "[]",
+      "expected": "[]",
+      "sample": true
+    },
+    {
+      "input": "[1,2,3,4,5,6,7]",
+      "sample": false
+    },
+    {
+      "input": "[1,2,null,3,null,4]",
+      "sample": false
+    },
+    {
+      "input": "[5,4,8,11,null,13,4,7,2,null,null,null,1]",
+      "sample": false
+    }
+  ]
+}

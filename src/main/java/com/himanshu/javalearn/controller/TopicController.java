@@ -1,5 +1,6 @@
 package com.himanshu.javalearn.controller;
 
+import com.himanshu.javalearn.auth.AuthUser;
 import com.himanshu.javalearn.dto.QuestionView;
 import com.himanshu.javalearn.dto.QuizResult;
 import com.himanshu.javalearn.dto.QuizSubmission;
@@ -8,6 +9,7 @@ import com.himanshu.javalearn.dto.TopicSummary;
 import com.himanshu.javalearn.service.CatalogService;
 import com.himanshu.javalearn.service.QuizService;
 import jakarta.validation.Valid;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -40,7 +42,8 @@ public class TopicController {
     }
 
     @PostMapping("/{slug}/quiz")
-    public QuizResult submitQuiz(@PathVariable String slug, @Valid @RequestBody QuizSubmission submission) {
-        return quizService.submit(slug, submission);
+    public QuizResult submitQuiz(@PathVariable String slug, @AuthenticationPrincipal AuthUser user,
+                                 @Valid @RequestBody QuizSubmission submission) {
+        return quizService.submit(slug, user.id(), submission);
     }
 }

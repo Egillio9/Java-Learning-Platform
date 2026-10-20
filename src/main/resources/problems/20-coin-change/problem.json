@@ -1,0 +1,48 @@
+{
+  "slug": "coin-change",
+  "title": "Coin Change",
+  "difficulty": "MEDIUM",
+  "params": [
+    "coins",
+    "amount"
+  ],
+  "tags": [
+    "Array",
+    "Dynamic Programming",
+    "Breadth-First Search"
+  ],
+  "position": 20,
+  "tests": [
+    {
+      "input": "[1,2,5]\n11",
+      "expected": "3",
+      "sample": true
+    },
+    {
+      "input": "[2]\n3",
+      "expected": "-1",
+      "sample": true
+    },
+    {
+      "input": "[1]\n0",
+      "expected": "0",
+      "sample": true
+    },
+    {
+      "input": "[186,419,83,408]\n6249",
+      "sample": false
+    },
+    {
+      "input": "[2,5,10,1]\n27",
+      "sample": false
+    },
+    {
+      "input": "[3,7]\n5",
+      "sample": false
+    },
+    {
+      "input": "[1]\n10000",
+      "sample": false
+    }
+  ]
+}

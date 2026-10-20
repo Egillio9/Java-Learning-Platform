@@ -1,9 +1,9 @@
 package com.himanshu.javalearn.controller;
 
-import com.himanshu.javalearn.dto.CompletionRequest;
+import com.himanshu.javalearn.auth.AuthUser;
 import com.himanshu.javalearn.dto.ProgressReport;
 import com.himanshu.javalearn.service.ProgressService;
-import jakarta.validation.Valid;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -17,12 +17,12 @@ public class ProgressController {
     }
 
     @PostMapping("/lessons/{lessonId}/complete")
-    public ProgressReport completeLesson(@PathVariable Long lessonId, @Valid @RequestBody CompletionRequest request) {
-        return progressService.completeLesson(lessonId, request.username());
+    public ProgressReport completeLesson(@PathVariable Long lessonId, @AuthenticationPrincipal AuthUser user) {
+        return progressService.completeLesson(lessonId, user.id());
     }
 
-    @GetMapping("/learners/{username}/progress")
-    public ProgressReport getProgress(@PathVariable String username) {
-        return progressService.report(username);
+    @GetMapping("/me/progress")
+    public ProgressReport myProgress(@AuthenticationPrincipal AuthUser user) {
+        return progressService.report(user.id());
     }
 }

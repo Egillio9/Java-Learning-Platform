@@ -1,0 +1,47 @@
+{
+  "slug": "valid-anagram",
+  "title": "Valid Anagram",
+  "difficulty": "EASY",
+  "params": [
+    "s",
+    "t"
+  ],
+  "tags": [
+    "String",
+    "Hash Table",
+    "Sorting"
+  ],
+  "position": 5,
+  "tests": [
+    {
+      "input": "\"anagram\"\n\"nagaram\"",
+      "expected": "true",
+      "sample": true
+    },
+    {
+      "input": "\"rat\"\n\"car\"",
+      "expected": "false",
+      "sample": true
+    },
+    {
+      "input": "\"a\"\n\"ab\"",
+      "sample": false
+    },
+    {
+      "input": "\"listen\"\n\"silent\"",
+      "sample": false
+    },
+    {
+      "input": "\"aacc\"\n\"ccac\"",
+      "sample": false
+    },
+    {
+      "input": "\"x\"\n\"x\"",
+      "sample": false
+    },
+    {
+      "input": "\"abcdefghij\"\n\"jihgfedcba\"",
+      "sample": false
+    }
+  ]
+}

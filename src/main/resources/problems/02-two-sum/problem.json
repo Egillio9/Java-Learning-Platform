@@ -1,0 +1,51 @@
+{
+  "slug": "two-sum",
+  "title": "Two Sum",
+  "difficulty": "EASY",
+  "params": [
+    "nums",
+    "target"
+  ],
+  "tags": [
+    "Array",
+    "Hash Table"
+  ],
+  "position": 2,
+  "tests": [
+    {
+      "input": "[2,7,11,15]\n9",
+      "expected": "[0,1]",
+      "sample": true
+    },
+    {
+      "input": "[3,2,4]\n6",
+      "expected": "[1,2]",
+      "sample": true
+    },
+    {
+      "input": "[3,3]\n6",
+      "expected": "[0,1]",
+      "sample": true
+    },
+    {
+      "input": "[1,5,9,13,2]\n15",
+      "sample": false
+    },
+    {
+      "input": "[-3,4,3,90]\n0",
+      "sample": false
+    },
+    {
+      "input": "[0,4,3,0]\n0",
+      "sample": false
+    },
+    {
+      "input": "[5,75,25]\n100",
+      "sample": false
+    },
+    {
+      "input": "[-1,-2,-3,-4,-5]\n-8",
+      "sample": false
+    }
+  ]
+}

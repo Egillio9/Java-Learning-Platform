@@ -43,10 +43,10 @@ public class ProgressService {
 
     /** Marking a lesson complete twice is a no-op, so the client can safely retry. */
     @Transactional
-    public ProgressReport completeLesson(Long lessonId, String username) {
+    public ProgressReport completeLesson(Long lessonId, Long learnerId) {
         Lesson lesson = lessonRepository.findById(lessonId)
                 .orElseThrow(() -> new NotFoundException("Lesson not found: " + lessonId));
-        Learner learner = learnerService.getOrCreate(username);
+        Learner learner = learnerService.get(learnerId);
         if (!completionRepository.existsByLearnerIdAndLessonId(learner.getId(), lesson.getId())) {
             completionRepository.save(new LessonCompletion(learner, lesson));
         }
@@ -54,8 +54,8 @@ public class ProgressService {
     }
 
     @Transactional(readOnly = true)
-    public ProgressReport report(String username) {
-        return buildReport(learnerService.get(username));
+    public ProgressReport report(Long learnerId) {
+        return buildReport(learnerService.get(learnerId));
     }
 
     private ProgressReport buildReport(Learner learner) {
@@ -79,7 +79,7 @@ public class ProgressService {
             totalCompleted += done;
         }
 
-        return new ProgressReport(learner.getUsername(), totalCompleted, totalLessons,
+        return new ProgressReport(learner.getDisplayName(), totalCompleted, totalLessons,
                 percent(totalCompleted, totalLessons), completed.stream().sorted().toList(), topics);
     }
 

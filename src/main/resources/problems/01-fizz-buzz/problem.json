@@ -1,0 +1,42 @@
+{
+  "slug": "fizz-buzz",
+  "title": "Fizz Buzz",
+  "difficulty": "EASY",
+  "params": [
+    "n"
+  ],
+  "tags": [
+    "Math",
+    "String",
+    "Simulation"
+  ],
+  "position": 1,
+  "tests": [
+    {
+      "input": "3",
+      "expected": "[\"1\",\"2\",\"Fizz\"]",
+      "sample": true
+    },
+    {
+      "input": "5",
+      "expected": "[\"1\",\"2\",\"Fizz\",\"4\",\"Buzz\"]",
+      "sample": true
+    },
+    {
+      "input": "1",
+      "sample": false
+    },
+    {
+      "input": "15",
+      "sample": false
+    },
+    {
+      "input": "16",
+      "sample": false
+    },
+    {
+      "input": "30",
+      "sample": false
+    }
+  ]
+}

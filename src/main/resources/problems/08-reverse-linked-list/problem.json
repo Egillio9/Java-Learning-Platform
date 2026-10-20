@@ -1,0 +1,42 @@
+{
+  "slug": "reverse-linked-list",
+  "title": "Reverse Linked List",
+  "difficulty": "EASY",
+  "params": [
+    "head"
+  ],
+  "tags": [
+    "Linked List",
+    "Recursion"
+  ],
+  "position": 8,
+  "tests": [
+    {
+      "input": "[1,2,3,4,5]",
+      "expected": "[5,4,3,2,1]",
+      "sample": true
+    },
+    {
+      "input": "[1,2]",
+      "expected": "[2,1]",
+      "sample": true
+    },
+    {
+      "input": "[]",
+      "expected": "[]",
+      "sample": true
+    },
+    {
+      "input": "[7]",
+      "sample": false
+    },
+    {
+      "input": "[1,1,2,3,5,8,13,21]",
+      "sample": false
+    },
+    {
+      "input": "[-1,0,1]",
+      "sample": false
+    }
+  ]
+}

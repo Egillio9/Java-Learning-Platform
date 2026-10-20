@@ -7,5 +7,5 @@ import java.util.Optional;
 
 public interface LearnerRepository extends JpaRepository<Learner, Long> {
 
-    Optional<Learner> findByUsernameIgnoreCase(String username);
+    Optional<Learner> findByUsername(String username);
 }

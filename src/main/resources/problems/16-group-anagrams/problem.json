@@ -1,0 +1,47 @@
+{
+  "slug": "group-anagrams",
+  "title": "Group Anagrams",
+  "difficulty": "MEDIUM",
+  "params": [
+    "strs"
+  ],
+  "tags": [
+    "String",
+    "Hash Table",
+    "Sorting"
+  ],
+  "position": 16,
+  "tests": [
+    {
+      "input": "[\"eat\",\"tea\",\"tan\",\"ate\",\"nat\",\"bat\"]",
+      "expected": "[[\"ate\",\"eat\",\"tea\"],[\"bat\"],[\"nat\",\"tan\"]]",
+      "sample": true
+    },
+    {
+      "input": "[\"\"]",
+      "expected": "[[\"\"]]",
+      "sample": true
+    },
+    {
+      "input": "[\"a\"]",
+      "expected": "[[\"a\"]]",
+      "sample": true
+    },
+    {
+      "input": "[\"abc\",\"bca\",\"cab\",\"xyz\",\"zyx\",\"yxz\",\"foo\"]",
+      "sample": false
+    },
+    {
+      "input": "[\"ab\",\"ba\",\"abc\"]",
+      "sample": false
+    },
+    {
+      "input": "[\"\",\"\"]",
+      "sample": false
+    },
+    {
+      "input": "[\"listen\",\"silent\",\"enlist\",\"google\"]",
+      "sample": false
+    }
+  ]
+}

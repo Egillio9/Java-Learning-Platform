@@ -1,0 +1,51 @@
+{
+  "slug": "longest-substring-without-repeating-characters",
+  "title": "Longest Substring Without Repeating Characters",
+  "difficulty": "MEDIUM",
+  "params": [
+    "s"
+  ],
+  "tags": [
+    "String",
+    "Sliding Window",
+    "Hash Table"
+  ],
+  "position": 13,
+  "tests": [
+    {
+      "input": "\"abcabcbb\"",
+      "expected": "3",
+      "sample": true
+    },
+    {
+      "input": "\"bbbbb\"",
+      "expected": "1",
+      "sample": true
+    },
+    {
+      "input": "\"pwwkew\"",
+      "expected": "3",
+      "sample": true
+    },
+    {
+      "input": "\"\"",
+      "sample": false
+    },
+    {
+      "input": "\"dvdf\"",
+      "sample": false
+    },
+    {
+      "input": "\" \"",
+      "sample": false
+    },
+    {
+      "input": "\"abba\"",
+      "sample": false
+    },
+    {
+      "input": "\"tmmzuxt\"",
+      "sample": false
+    }
+  ]
+}

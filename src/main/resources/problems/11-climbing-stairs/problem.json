@@ -1,0 +1,45 @@
+{
+  "slug": "climbing-stairs",
+  "title": "Climbing Stairs",
+  "difficulty": "EASY",
+  "params": [
+    "n"
+  ],
+  "tags": [
+    "Dynamic Programming",
+    "Math"
+  ],
+  "position": 11,
+  "tests": [
+    {
+      "input": "2",
+      "expected": "2",
+      "sample": true
+    },
+    {
+      "input": "3",
+      "expected": "3",
+      "sample": true
+    },
+    {
+      "input": "1",
+      "sample": false
+    },
+    {
+      "input": "5",
+      "sample": false
+    },
+    {
+      "input": "10",
+      "sample": false
+    },
+    {
+      "input": "30",
+      "sample": false
+    },
+    {
+      "input": "45",
+      "sample": false
+    }
+  ]
+}

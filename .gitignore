@@ -4,3 +4,8 @@ data/
 .idea/
 .vscode/
 *.iml
+
+# frontend
+frontend/node_modules/
+# built by `npm run build` (and in the Docker image); not committed
+src/main/resources/static/
