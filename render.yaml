@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: java-learning-platform
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /api/topics
