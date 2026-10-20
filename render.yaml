@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: java-learning-platform
+    name: himanshu-javalearn
     runtime: docker
     plan: free
     dockerfilePath: ./Dockerfile
