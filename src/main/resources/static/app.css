@@ -1,0 +1,188 @@
+:root {
+    --bg: #f6f7fb;
+    --panel: #ffffff;
+    --ink: #1d2233;
+    --muted: #667085;
+    --line: #e4e7ec;
+    --accent: #e76f00;
+    --accent-soft: #fff1e5;
+    --ok: #12805c;
+    --ok-soft: #e7f6ef;
+    --bad: #c4321f;
+    --bad-soft: #fdecea;
+    --code-bg: #1e2433;
+    --code-ink: #e6e9f2;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.55;
+}
+
+.hidden { display: none !important; }
+
+.topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    padding: 12px 24px;
+    background: var(--panel);
+    border-bottom: 1px solid var(--line);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.brand { font-weight: 700; font-size: 1.2rem; }
+
+.login { display: flex; gap: 8px; }
+
+input[type="text"], .login input {
+    padding: 8px 12px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    font: inherit;
+}
+
+button {
+    font: inherit;
+    border: 0;
+    border-radius: 8px;
+    padding: 8px 14px;
+    background: var(--accent);
+    color: #fff;
+    cursor: pointer;
+}
+
+button:hover { filter: brightness(0.95); }
+
+button.link { background: none; color: var(--muted); padding: 4px 6px; text-decoration: underline; }
+
+.learner { display: flex; align-items: center; gap: 10px; font-size: 0.95rem; }
+
+.overall, .bar {
+    height: 8px;
+    background: var(--line);
+    border-radius: 99px;
+    overflow: hidden;
+}
+
+.overall { width: 140px; }
+
+.overall > div, .bar > div {
+    height: 100%;
+    background: var(--ok);
+    transition: width 0.3s ease;
+}
+
+.layout {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 24px;
+}
+
+main { min-width: 0; }
+
+aside h3 { margin: 0 0 12px; color: var(--muted); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; }
+
+#topic-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+
+#topic-list li {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 12px;
+    cursor: pointer;
+}
+
+#topic-list li.active { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent-soft); }
+
+.topic-title { font-weight: 600; }
+
+.topic-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    color: var(--muted);
+    margin: 4px 0 8px;
+}
+
+.badge {
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 99px;
+    letter-spacing: 0.03em;
+}
+
+.badge.beginner { background: var(--ok-soft); color: var(--ok); }
+.badge.intermediate { background: var(--accent-soft); color: var(--accent); }
+.badge.advanced { background: var(--bad-soft); color: var(--bad); }
+
+main section, .lesson {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 16px;
+}
+
+.welcome h1, .topic-head h1 { margin: 8px 0; }
+
+pre {
+    background: var(--code-bg);
+    color: var(--code-ink);
+    padding: 14px 16px;
+    border-radius: 8px;
+    overflow-x: auto;
+    font-size: 0.88rem;
+}
+
+button.complete.done { background: var(--ok-soft); color: var(--ok); }
+
+fieldset {
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    margin: 0 0 12px;
+    padding: 12px 16px;
+}
+
+fieldset.right { border-color: var(--ok); background: var(--ok-soft); }
+fieldset.wrong { border-color: var(--bad); background: var(--bad-soft); }
+
+legend { font-weight: 600; padding: 0 4px; }
+
+fieldset label { display: block; padding: 3px 0; cursor: pointer; }
+
+label.correct-option { font-weight: 700; color: var(--ok); }
+
+.explanation { margin: 6px 0 0; font-size: 0.9rem; color: var(--muted); }
+
+.score { margin-top: 12px; font-weight: 700; font-size: 1.1rem; }
+
+.toast {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: var(--ink);
+    color: #fff;
+    padding: 10px 16px;
+    border-radius: 8px;
+}
+
+.toast.error { background: var(--bad); }
+
+@media (max-width: 760px) {
+    .layout { grid-template-columns: 1fr; padding: 16px; }
+    .topbar { padding: 12px 16px; }
+}

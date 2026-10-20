@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>JavaLearn</title>
+    <link rel="stylesheet" href="app.css">
+</head>
+<body>
+<header class="topbar">
+    <div class="brand">☕ JavaLearn</div>
+    <form id="login-form" class="login">
+        <input id="username" placeholder="Your name" maxlength="40" autocomplete="nickname" required>
+        <button type="submit">Start learning</button>
+    </form>
+    <div id="learner" class="learner hidden">
+        <span id="learner-name"></span>
+        <div class="overall"><div id="overall-bar"></div></div>
+        <span id="overall-text"></span>
+        <button id="logout" class="link">Switch</button>
+    </div>
+</header>
+
+<div class="layout">
+    <aside>
+        <h3>Topics</h3>
+        <ul id="topic-list"></ul>
+    </aside>
+
+    <main id="content">
+        <section class="welcome">
+            <h1>Learn Java one topic at a time</h1>
+            <p>Read short lessons with runnable examples, mark them done, then test yourself with a quiz.
+                Your progress is saved against your name.</p>
+        </section>
+    </main>
+</div>
+
+<div id="toast" class="toast hidden"></div>
+<script src="api.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
