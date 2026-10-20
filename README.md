@@ -2,6 +2,8 @@
 
 A self-paced Java learning web app built with **Spring Boot**. Learners work through topic-wise lessons with code examples, mark lessons complete, take practice quizzes with instant feedback, and track their progress per topic.
 
+**Live demo:** https://himanshu-javalearn.onrender.com (free tier, so the first load can take ~50s to wake up)
+
 ## Features
 
 - **6 topics, 12 lessons, 18 practice questions**, from Java Basics and OOP to Collections and Streams, each tagged Beginner, Intermediate or Advanced
