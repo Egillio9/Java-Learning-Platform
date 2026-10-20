@@ -116,7 +116,10 @@ export default function Landing() {
 
       <footer className="footer">
         <span>© {new Date().getFullYear()} JavaLearn · Built with Spring Boot &amp; React by Himanshu Kumar</span>
-        <a href="https://github.com/Egillio9/Java-Learning-Platform" target="_blank" rel="noreferrer">Source on GitHub</a>
+        <span className="footer-links">
+          <Link to="/privacy">Privacy</Link>
+          <a href="https://github.com/Egillio9/Java-Learning-Platform" target="_blank" rel="noreferrer">Source on GitHub</a>
+        </span>
       </footer>
     </div>
   )

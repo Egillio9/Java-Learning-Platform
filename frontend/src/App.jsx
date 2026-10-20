@@ -7,6 +7,7 @@ import Leaderboard from './pages/Leaderboard'
 import Learn from './pages/Learn'
 import Login from './pages/Login'
 import NotFound from './pages/NotFound'
+import Privacy from './pages/Privacy'
 import ProblemWorkspace from './pages/ProblemWorkspace'
 import Problems from './pages/Problems'
 import TopicPage from './pages/TopicPage'
@@ -23,6 +24,7 @@ export default function App() {
         <Route path="/learn" element={<Learn />} />
         <Route path="/learn/:slug" element={<TopicPage />} />
         <Route path="/leaderboard" element={<Leaderboard />} />
+        <Route path="/privacy" element={<Privacy />} />
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
